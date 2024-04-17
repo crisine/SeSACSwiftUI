@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // property
+    var menuView = MenuView()
+    @State var number: Int = 0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            menuView
+            Text("\(number)")
+                .font(.title)
+                .asBlueBackground()
+            Button("숫자 바꾸기") {
+                number = Int.random(in: 1...100)
+            }
+            .padding(8)
+            .foregroundStyle(.white)
+            .background(.blue)
+            .clipShape(.capsule)
         }
         .padding()
     }
